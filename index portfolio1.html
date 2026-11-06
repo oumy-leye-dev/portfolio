@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oumy Leye | Développeuse frontend et backend</title>
+<meta name="description" content="Portfolio d’Oumy Leye, développeuse frontend et backend, étudiante en licence 3, future ingénieure en génie logiciel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Serif+4:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--fond:#F4F7F3;--texte:#10231F;--discret:#4A5F59;--vert:#0F5C4D;--vert2:#14806A;--jaune:#F2B705;--trait:#D5E0DA;--carte:#fff;--ombre:0 10px 30px rgba(15,92,77,.10);
+--titre:"Bricolage Grotesque",system-ui,sans-serif;--corps:"Source Serif 4",Georgia,serif;--code:"JetBrains Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root{--fond:#0A1512;--texte:#E7EFEB;--discret:#9DB3AB;--vert:#4FC3A6;--vert2:#7FE3C9;--trait:#21392F;--carte:#112620;--ombre:0 10px 30px rgba(0,0,0,.35)}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+html[lang=fr] .en,html[lang=en] .fr{display:none}
+body{margin:0;background:var(--fond);color:var(--texte);font:1.1rem/1.7 var(--corps)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--jaune);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--titre);line-height:1.1;margin:0}
+h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:.4rem}
+.sous{color:var(--discret);margin:0 0 2rem;max-width:38rem}
+section{padding:4.5rem 0}
+.bar{position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--fond) 82%,transparent);border-bottom:1px solid var(--trait)}
+.bar .wrap{display:flex;align-items:center;gap:1.5rem;height:4rem}
+.marque{font:800 1.4rem var(--titre);text-decoration:none;color:var(--vert)}
+.marque i{display:inline-block;width:.45rem;height:.45rem;background:var(--jaune);border-radius:50%;margin-left:.15rem}
+.bar nav{margin-left:auto;display:flex;gap:1.4rem;font:500 .98rem var(--titre)}
+.bar nav a{text-decoration:none;color:var(--discret)}
+.bar nav a:hover{color:var(--vert)}
+#lang{font:700 .85rem var(--titre);background:none;color:var(--vert);border:2px solid var(--vert);border-radius:.4rem;padding:.2rem .65rem;cursor:pointer}
+#lang:hover{background:var(--vert);color:#fff}
+@media (max-width:48rem){.bar nav a:not(.cta){display:none}.bar nav{gap:.8rem}}
+.cta{background:var(--vert);color:#fff!important;padding:.35rem .9rem;border-radius:.4rem}
+.accueil{position:relative;padding:4.5rem 0 4rem;background:radial-gradient(40rem 22rem at 85% 0,rgba(242,183,5,.16),transparent 70%),radial-gradient(38rem 24rem at 0 20%,rgba(20,128,106,.18),transparent 70%)}
+.accueil .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+@media (max-width:56rem){.accueil .wrap{grid-template-columns:1fr}}
+.pastille{display:inline-flex;align-items:center;gap:.5rem;font:500 .92rem var(--titre);border:1px solid var(--trait);background:var(--carte);padding:.3rem .9rem;border-radius:2rem;margin-bottom:1.2rem}
+.pastille::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:#2BC48A;box-shadow:0 0 0 4px rgba(43,196,138,.25)}
+h1{font-size:clamp(3.4rem,10vw,6.4rem);font-weight:800;letter-spacing:-.04em}
+.curseur{display:inline-block;width:.34em;height:.72em;background:var(--jaune);margin-left:.08em;animation:cl 1.1s steps(1) infinite}
+@keyframes cl{50%{opacity:0}}
+.role{font:600 1.4rem/1.3 var(--titre);color:var(--vert);margin:1rem 0 1rem}
+.intro{max-width:34rem;margin:0 0 1.8rem;color:var(--discret)}
+.boutons{display:flex;gap:.9rem;flex-wrap:wrap}
+.btn{font:700 1rem var(--titre);padding:.8rem 1.4rem;border-radius:.5rem;text-decoration:none;border:2px solid var(--vert);transition:.2s}
+.btn.plein{background:var(--vert);color:#fff}
+.btn.plein:hover{transform:translateY(-2px);box-shadow:var(--ombre)}
+.btn.vide{color:var(--vert)}
+.btn.vide:hover{background:var(--vert);color:#fff}
+.fenetre{background:#0E1B18;border-radius:.9rem;box-shadow:0 24px 50px rgba(0,0,0,.28);overflow:hidden;font:400 .92rem/1.75 var(--code);color:#D9E6E1}
+.fenetre .tete{display:flex;gap:.45rem;padding:.7rem 1rem;background:#162924}
+.fenetre .tete b{width:.7rem;height:.7rem;border-radius:50%;background:#F26B5B}
+.fenetre .tete b:nth-child(2){background:var(--jaune)}.fenetre .tete b:nth-child(3){background:#2BC48A}
+.fenetre pre{margin:0;padding:1.1rem 1.3rem;overflow-x:auto}
+.k{color:#F2B705}.s{color:#7FE3C9}.c{color:#6F8A82}
+.accueil .faits{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem;margin-top:3rem}
+.fait{background:var(--carte);border:1px solid var(--trait);border-radius:.8rem;padding:1rem 1.2rem}
+.fait strong{display:block;font:800 1.5rem var(--titre);color:var(--vert)}
+.fait span{color:var(--discret);font-size:.98rem}
+.apropos p{max-width:44rem;margin:0 0 1rem}
+.grille{display:grid;gap:1.2rem}
+.valeurs{grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));margin-top:2rem}
+.carte{background:var(--carte);border:1px solid var(--trait);border-radius:.9rem;padding:1.2rem 1.3rem;box-shadow:var(--ombre)}
+.valeurs .carte{border-top:4px solid var(--jaune)}
+.carte h3{font-size:1.15rem;margin-bottom:.4rem}
+.carte p{margin:0;font-size:1rem;color:var(--discret);line-height:1.55}
+.competences{grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
+.pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem}
+.pills span{font:500 .9rem var(--titre);background:var(--fond);border:1px solid var(--trait);color:var(--texte);padding:.2rem .7rem;border-radius:2rem}
+.projets{grid-template-columns:repeat(auto-fit,minmax(19rem,1fr))}
+.projet{display:flex;flex-direction:column;padding:0;overflow:hidden;transition:.25s}
+.projet:hover{transform:translateY(-5px)}
+.vignette{position:relative;margin:0;aspect-ratio:16/10;background:linear-gradient(135deg,var(--vert),var(--vert2) 60%,var(--jaune));display:grid;place-items:center;color:#fff;font:800 1.5rem var(--titre);text-align:center;padding:1rem}
+.vignette img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.projet .corps{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
+.projet h3{font-size:1.35rem}
+.projet p{margin:0;color:var(--discret);font-size:1rem;line-height:1.55}
+.projet .liens{margin-top:auto;padding-top:.4rem}
+.liens a{font:700 .98rem var(--titre);color:var(--vert)}
+.formation .carte{max-width:40rem}
+.contact{text-align:center;background:var(--vert);color:#fff;border-radius:1.2rem;padding:3.5rem 1.5rem}
+.contact .sous{color:#CDEBE2;margin:0 auto 1.8rem}
+.contact .boutons{justify-content:center}
+.contact .btn.plein{background:var(--jaune);border-color:var(--jaune);color:#10231F}
+.contact .btn.vide{color:#fff;border-color:#fff}
+.contact .btn.vide:hover{background:#fff;color:var(--vert)}
+footer{padding:2.5rem 0;color:var(--discret);font-size:.95rem;text-align:center}
+.rev{opacity:0;transform:translateY(18px);transition:.6s}
+.rev.vu{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.curseur{animation:none}.rev{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body id="top">
+
+<div class="bar"><div class="wrap">
+  <a class="marque" href="#top" aria-label="Oumy Leye">OL<i></i></a>
+  <nav aria-label="Navigation">
+    <a href="#apropos"><span class="fr">À propos</span><span class="en">About</span></a>
+    <a href="#projets"><span class="fr">Projets</span><span class="en">Projects</span></a>
+    <a href="#competences"><span class="fr">Compétences</span><span class="en">Skills</span></a>
+    <a href="#formation"><span class="fr">Formation</span><span class="en">Education</span></a>
+    <a class="cta" href="#contact">Contact</a>
+    <button id="lang" type="button" aria-label="Changer de langue / Switch language">EN</button>
+  </nav>
+</div></div>
+
+<header class="accueil"><div class="wrap">
+  <div>
+    <span class="pastille"><span class="fr">Ouverte aux opportunités</span><span class="en">Open to opportunities</span></span>
+    <h1>Oumy Leye<span class="curseur" aria-hidden="true"></span></h1>
+    <p class="role"><span class="fr">Développeuse frontend et backend, future ingénieure en génie logiciel</span><span class="en">Frontend and backend developer, aspiring software engineer</span></p>
+    <p class="intro"><span class="fr">Je conçois des applications robustes, évolutives et centrées sur l’utilisateur, avec un code propre et testé.</span><span class="en">I design robust, scalable, user-centered applications with clean, tested code.</span></p>
+    <div class="boutons">
+      <a class="btn plein" href="#projets"><span class="fr">Voir mes projets</span><span class="en">View my projects</span></a>
+      <a class="btn vide" href="https://github.com/oumy-leye-dev">GitHub</a>
+      <!-- CV : place cv.pdf à côté de ce fichier puis retire les signes de commentaire
+      <a class="btn vide" href="cv.pdf" download>CV</a> -->
+    </div>
+  </div>
+  <div class="fenetre" aria-hidden="true">
+    <div class="tete"><b></b><b></b><b></b></div>
+<pre><span class="k">const</span> oumy = {
+  role: <span class="s">"software engineer in progress"</span>,
+  focus: [<span class="s">"frontend"</span>, <span class="s">"backend"</span>],
+  stack: [<span class="s">"React"</span>, <span class="s">"Java"</span>, <span class="s">"PHP"</span>],
+  values: [<span class="s">"clean code"</span>, <span class="s">"tests"</span>],
+  openTo: [<span class="s">"internships"</span>, <span class="s">"team projects"</span>]
+};
+<span class="c">// always learning</span></pre>
+  </div>
+</div>
+<div class="wrap faits">
+  <div class="fait"><strong><span class="fr">Licence 3</span><span class="en">Bachelor’s, year 3</span></strong><span class="fr">Développement et administration d’applications</span><span class="en">Application development and administration</span></div>
+  <div class="fait"><strong><span class="fr">3 projets</span><span class="en">3 projects</span></strong><span class="fr">Web, paiement et bureau</span><span class="en">Web, payments and desktop</span></div>
+  <div class="fait"><strong><span class="fr">2 langues</span><span class="en">2 languages</span></strong><span class="fr">Français, anglais</span><span class="en">French, English</span></div>
+</div>
+</header>
+
+<section id="apropos" class="apropos rev"><div class="wrap">
+  <h2><span class="fr">À propos</span><span class="en">About</span></h2>
+  <p class="fr">Étudiante passionnée par la technologie et le code, je me dirige vers une carrière d’ingénieure en génie logiciel pour concevoir des applications performantes et utiles. Rigoureuse et curieuse, j’aime relever des défis techniques complexes tout en travaillant en équipe.</p>
+  <p class="en">A student passionate about technology and code, I am heading towards a career as a software engineer, building high-performing and useful applications. Rigorous and curious, I enjoy tackling complex technical challenges while working in a team.</p>
+  <div class="grille valeurs">
+    <div class="carte"><h3><span class="fr">Code propre</span><span class="en">Clean code</span></h3><p><span class="fr">Lisible, maintenable et testé.</span><span class="en">Readable, maintainable and tested.</span></p></div>
+    <div class="carte"><h3><span class="fr">Simplicité</span><span class="en">Simplicity</span></h3><p><span class="fr">Des solutions simples, pensées pour l’impact utilisateur.</span><span class="en">Simple solutions focused on user impact.</span></p></div>
+    <div class="carte"><h3><span class="fr">Esprit d’équipe</span><span class="en">Teamwork</span></h3><p><span class="fr">Une collaboration ouverte pour avancer ensemble.</span><span class="en">Open collaboration to move forward together.</span></p></div>
+    <div class="carte"><h3><span class="fr">Apprentissage continu</span><span class="en">Continuous learning</span></h3><p><span class="fr">Toujours prête à apprendre de nouveaux outils.</span><span class="en">Always ready to learn new tools.</span></p></div>
+  </div>
+</div></section>
+
+<section id="projets" class="rev"><div class="wrap">
+  <h2><span class="fr">Projets</span><span class="en">Projects</span></h2>
+  <p class="sous"><span class="fr">Trois projets qui montrent comment je conçois, développe et teste une application.</span><span class="en">Three projects showing how I design, build and test an application.</span></p>
+  <!-- IMAGES : mets tes mockups Freepik ou tes captures dans le dossier images/ avec ces noms exacts (png) -->
+  <div class="grille projets">
+    <article class="carte projet">
+      <figure class="vignette">Teranga Pay<img src="images/teranga-pay.png" alt="Aperçu du projet Teranga Pay" loading="lazy" onerror="this.remove()"></figure>
+      <div class="corps"><h3>Teranga Pay</h3>
+        <p class="fr">Plateforme de paiement pour les commerçants sénégalais et la diaspora : une seule interface pour encaisser par Mobile Money, carte bancaire ou Bitcoin Lightning, avec un portefeuille unique et un retrait en FCFA.</p>
+        <p class="en">Payment platform for Senegalese merchants and the diaspora: a single interface to get paid by Mobile Money, bank card or Bitcoin Lightning, with one wallet and cash-out in FCFA.</p>
+        <!-- À COMPLÉTER : ajoute les langages et frameworks que tu as vraiment utilisés (ex. <span>React</span>) -->
+        <div class="pills"><span>Mobile Money</span><span>Bitcoin Lightning</span><span class="fr">Carte bancaire</span><span class="en">Bank card</span></div>
+        <!-- Pitch en PDF : place teranga-pay-pitch.pdf à côté de ce fichier, retire les signes de commentaire
+        <p class="liens"><a href="teranga-pay-pitch.pdf"><span class="fr">Voir le pitch (PDF)</span><span class="en">View the pitch (PDF)</span></a></p> -->
+        <p class="liens"><a href="https://github.com/oumy-leye-dev/teranga-pay"><span class="fr">Voir le code</span><span class="en">View the code</span></a></p></div>
+    </article>
+    <article class="carte projet">
+      <figure class="vignette"><span class="fr">Gestion de bibliothèque</span><span class="en">Library management</span><img src="images/bibliotheque.png" alt="Aperçu du projet de gestion de bibliothèque" loading="lazy" onerror="this.remove()"></figure>
+      <div class="corps"><h3><span class="fr">Gestion de bibliothèque</span><span class="en">Library management</span></h3>
+        <p class="fr">Application de bureau 100 % Java pour gérer le catalogue : ajout et suppression de livres, emprunts, suivi des membres et recherche d’ouvrages.</p>
+        <p class="en">100% Java desktop app to manage a library catalogue: adding and removing books, loans, member tracking and search.</p>
+        <div class="pills"><span>Java</span><span>JavaFX</span><span>Eclipse</span></div>
+        <p class="liens"><a href="https://github.com/oumy-leye-dev"><span class="fr">Code bientôt disponible sur GitHub</span><span class="en">Code coming soon on GitHub</span></a></p></div>
+    </article>
+    <article class="carte projet">
+      <figure class="vignette">Magal de Touba<img src="images/magal.png" alt="Aperçu de l’application Magal de Touba" loading="lazy" onerror="this.remove()"></figure>
+      <div class="corps"><h3>Magal de Touba</h3>
+        <p class="fr">Application web pour consulter les horaires, s’inscrire, lire les notifications et repérer les lieux importants. Inscriptions conservées dans le navigateur, avec tests automatisés.</p>
+        <p class="en">Web app to check schedules, register, read notifications and find key places. Registrations kept in the browser, with automated tests.</p>
+        <div class="pills"><span>React</span><span>JavaScript</span><span>CSS</span><span>Jest</span></div>
+        <!-- Remplace par le lien exact du dépôt, par exemple https://github.com/oumy-leye-dev/magal-front -->
+        <p class="liens"><a href="https://github.com/oumy-leye-dev"><span class="fr">Voir le code</span><span class="en">View the code</span></a></p></div>
+    </article>
+  </div>
+</div></section>
+
+<section id="competences" class="rev"><div class="wrap">
+  <h2><span class="fr">Compétences</span><span class="en">Skills</span></h2>
+  <p class="sous"><span class="fr">Ce que j’ai appris en formation et mis en pratique dans mes projets.</span><span class="en">What I learned in my degree and put into practice in my projects.</span></p>
+  <!-- À ADAPTER : ces compétences viennent de ta maquette ; garde seulement ce que tu maîtrises vraiment -->
+  <div class="grille competences">
+    <div class="carte"><h3><span class="fr">Langages</span><span class="en">Languages</span></h3><div class="pills"><span>Java</span><span>JavaScript</span><span>PHP</span><span>C</span></div></div>
+    <div class="carte"><h3><span class="fr">Frontend et interfaces</span><span class="en">Frontend and interfaces</span></h3><div class="pills"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span class="fr">Frameworks web</span><span class="en">Web frameworks</span><span>JavaFX</span></div></div>
+    <div class="carte"><h3>Backend</h3><div class="pills"><span>Java</span><span>JSP</span><span>Servlets</span><span>PHP</span><span>Tomcat</span></div></div>
+    <div class="carte"><h3><span class="fr">Conception</span><span class="en">Design</span></h3><div class="pills"><span>UML</span><span>Merise</span><span>PowerAMC</span><span class="fr">Programmation orientée objet</span><span class="en">Object-oriented programming</span></div></div>
+    <div class="carte"><h3><span class="fr">Données</span><span class="en">Data</span></h3><div class="pills"><span class="fr">Bases de données relationnelles</span><span class="en">Relational databases</span><span class="fr">Administration Oracle</span><span class="en">Oracle administration</span><span>XML</span></div></div>
+    <div class="carte"><h3><span class="fr">Systèmes et réseaux</span><span class="en">Systems and networks</span></h3><div class="pills"><span class="fr">Administration Linux</span><span class="en">Linux administration</span><span class="fr">Administration Windows</span><span class="en">Windows administration</span><span class="fr">Réseaux</span><span class="en">Networks</span></div></div>
+    <div class="carte"><h3><span class="fr">Outils</span><span class="en">Tools</span></h3><div class="pills"><span>Git</span><span>GitHub</span><span>VS Code</span><span>Eclipse</span><span>NetBeans</span><span>npm</span></div></div>
+    <div class="carte"><h3><span class="fr">Langues</span><span class="en">Languages spoken</span></h3><div class="pills"><span class="fr">Français (natif)</span><span class="en">French (native)</span><span class="fr">Anglais (professionnel)</span><span class="en">English (professional)</span></div></div>
+  </div>
+</div></section>
+
+<section id="formation" class="formation rev"><div class="wrap">
+  <h2><span class="fr">Formation</span><span class="en">Education</span></h2>
+  <!-- À COMPLÉTER : année de diplôme prévue -->
+  <div class="carte" style="margin-top:1.5rem">
+    <h3><span class="fr">Licence 3, développement et administration d’applications</span><span class="en">Bachelor’s degree (year 3), application development and administration</span></h3>
+    <p><span class="fr">Université Alioune Diop de Bambey, UFR SATIC, filière D2AW. Troisième année en cours.</span><span class="en">Alioune Diop University of Bambey, UFR SATIC, D2AW programme. Third year in progress.</span></p>
+    <p style="margin-top:1rem"><strong><span class="fr">Matières clés</span><span class="en">Key courses</span></strong></p>
+    <div class="pills"><span class="fr">Algorithmique et programmation</span><span class="en">Algorithms and programming</span><span class="fr">HTML et CSS</span><span class="en">HTML and CSS</span><span>JavaScript</span><span>PHP</span><span class="fr">POO avec Java</span><span class="en">OOP with Java</span><span>Merise</span><span class="fr">Bases de données relationnelles</span><span class="en">Relational databases</span><span>Linux</span><span class="fr">Réseaux</span><span class="en">Networks</span><span>UML</span><span class="fr">Java avancé</span><span class="en">Advanced Java</span><span>JSP et Servlets</span><span class="fr">Frameworks web</span><span class="en">Web frameworks</span><span class="fr">Administration Oracle</span><span class="en">Oracle administration</span><span class="fr">Technologies XML</span><span class="en">XML technologies</span></div>
+  </div>
+</div></section>
+
+<section id="contact" class="rev"><div class="wrap">
+  <div class="contact">
+    <h2><span class="fr">Travaillons ensemble</span><span class="en">Let’s work together</span></h2>
+    <p class="sous"><span class="fr">Un stage, un projet d’équipe, une question ? Écris-moi, je réponds avec plaisir.</span><span class="en">An internship, a team project, a question? Write to me, I’ll be glad to answer.</span></p>
+    <div class="boutons">
+      <a class="btn plein" href="mailto:oumyleye974@gmail.com">oumyleye974@gmail.com</a>
+      <a class="btn vide" href="https://github.com/oumy-leye-dev">GitHub</a>
+      <!-- LinkedIn : retire les signes de commentaire et mets ton lien
+      <a class="btn vide" href="https://www.linkedin.com/in/TON-NOM">LinkedIn</a> -->
+    </div>
+  </div>
+</div></section>
+
+<footer>© 2026 Oumy Leye
+<!-- Si tu utilises des visuels Freepik gratuits, garde cette mention :
+ · <span class="fr">Visuels :</span><span class="en">Visuals:</span> <a href="https://www.freepik.com">Freepik</a> -->
+</footer>
+
+<script>
+(function(){
+  var h=document.documentElement,b=document.getElementById('lang'),l;
+  try{l=localStorage.getItem('lang')}catch(e){}
+  if(!l){l=(navigator.language||'fr').slice(0,2)}
+  function set(v){l=v==='en'?'en':'fr';h.lang=l;b.textContent=l==='fr'?'EN':'FR';try{localStorage.setItem('lang',l)}catch(e){}}
+  b.addEventListener('click',function(){set(l==='fr'?'en':'fr')});
+  set(l);
+  var els=document.querySelectorAll('.rev');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('vu')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vu');io.unobserve(e.target)}})},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
